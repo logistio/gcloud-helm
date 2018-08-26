@@ -2,7 +2,7 @@ FROM google/cloud-sdk:alpine
 
 RUN apk --update add openjdk8-jre
 
-RUN  gcloud components install kubectl gsutil
+RUN gcloud components install kubectl gsutil beta
 
 ENV HELM_LATEST_VERSION="v2.10.0"
 
