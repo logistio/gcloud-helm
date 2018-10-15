@@ -1,4 +1,4 @@
-FROM google/cloud-sdk:213.0.0-alpine
+FROM google/cloud-sdk:220.0.0-alpine
 
 RUN apk --update add openjdk8-jre
 
