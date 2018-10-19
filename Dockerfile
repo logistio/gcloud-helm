@@ -16,6 +16,7 @@ RUN apk add --update ca-certificates \
 && rm /var/cache/apk/* \
 && rm -f /helm-${HELM_LATEST_VERSION}-linux-amd64.tar.gz
 
+RUN helm init --client-only
 RUN helm plugin install https://github.com/chartmuseum/helm-push
 
 ENTRYPOINT [“helm”]
