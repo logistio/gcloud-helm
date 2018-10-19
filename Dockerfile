@@ -4,7 +4,7 @@ RUN apk --update add openjdk8-jre
 
 RUN gcloud components install kubectl gsutil beta
 
-ENV HELM_LATEST_VERSION="v2.10.0"
+ENV HELM_LATEST_VERSION="v2.11.0"
 
 RUN apk add --update ca-certificates \
 && apk add --update -t deps wget \
@@ -15,6 +15,8 @@ RUN apk add --update ca-certificates \
 && apk del --purge deps \
 && rm /var/cache/apk/* \
 && rm -f /helm-${HELM_LATEST_VERSION}-linux-amd64.tar.gz
+
+RUN helm plugin install https://github.com/chartmuseum/helm-push
 
 ENTRYPOINT [“helm”]
 
